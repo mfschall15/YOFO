@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>YOFO vision</title>
+
+    
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+                <img src="{{ url_for('video_feed') }}" width="100%">
+            </div>
+        </div>
+        <div class="entry" style="width:800px; margin:0 auto; padding:20px 0">
+            <form method="POST">
+                <p>Yolo Confidence Threshold <input type="number" name="yolo_confidence" min=0 max=100 placeholder={{conf}} /></p>
+                <p>Tracker Min Hits <input type="number" name="min_hits" min=0 max=5 placeholder={{min_hits}} /></p>
+                <p>Tracker Max Age <input type="number" name="max_age" min=0 max=10 placeholder={{max_age}} /></p>
+                <p><input type="submit" value="submit" /></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
