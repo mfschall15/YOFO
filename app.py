@@ -65,15 +65,16 @@ def video_feed():
 def index():
     """Video streaming home page."""
 
-    #get data from the webpage
-    form_data = request.form
-    #Update the tracker hyperparameters if user inputs something
-    if form_data["yolo_confidence"]:
-        tracker.yolo_confidence = int(form_data["yolo_confidence"])
-    if form_data["min_hits"]:
-        tracker.min_hits = int(form_data["min_hits"])
-    if form_data["max_age"]:
-        tracker.max_age = int(form_data["max_age"])
+    if request.method == "POST":
+        #get data from the webpage
+        form_data = request.form
+        #Update the tracker hyperparameters if user inputs something
+        if form_data["yolo_confidence"]:
+            tracker.yolo_confidence = int(form_data["yolo_confidence"])
+        if form_data["min_hits"]:
+            tracker.min_hits = int(form_data["min_hits"])
+        if form_data["max_age"]:
+            tracker.max_age = int(form_data["max_age"])
 
     return render_template('index.html', conf = tracker.yolo_confidence, min_hits = tracker.min_hits, max_age = tracker.max_age)
 
