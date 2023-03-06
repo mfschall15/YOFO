@@ -16,18 +16,21 @@ thread_lock = threading.Lock()
 
 # Create the Flask object for the application
 app = Flask(__name__)
+time.sleep(2.0)
 
 def captureFrames():
     global thread_lock
 
     # Video capturing from OpenCV
-    video_capture = cv2.VideoCapture(0+cv2.CAP_DSHOW)
+    video_capture = cv2.VideoCapture(0)
+    
+    
 
     while True and video_capture.isOpened():
         return_key, frame = video_capture.read()
         if not return_key:
             break
-
+        frame = cv2.resize(frame,(620,360))
         frame = infer_img(frame)
         # Create a copy of the frame and store it in the global variable,
         # with thread safe access
