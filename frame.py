@@ -13,9 +13,8 @@ class tracker:
 class video_frame:
     def __init__(self):
         self.img = None
-        self.boxes = []
-        self.cntrPts = []
         self.objects = {}
+    
 
 tracker = tracker()
-video_frame = video_frame()
+frame_data = video_frame()
